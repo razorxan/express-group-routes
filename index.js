@@ -10,8 +10,8 @@ express.application.group = express.Router.group = function() {
 		mw = Array.prototype.slice.call(arguments, 1, arguments.length -1)
 		fn = arguments[arguments.length - 1]
 	}
-    const router = express.Router()
+	const router = express.Router()
 	fn.call(router, router)
-    this.use.apply(this, [].concat(path, mw, router))
-    return router
+	this.use.apply(this, [].concat(path, mw, router))
+	return router
 }
